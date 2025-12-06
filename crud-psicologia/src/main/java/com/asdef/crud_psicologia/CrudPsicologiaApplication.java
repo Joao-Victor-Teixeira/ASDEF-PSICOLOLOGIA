@@ -9,7 +9,4 @@ public class CrudPsicologiaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CrudPsicologiaApplication.class, args);
 	}
-
-	
-
 }

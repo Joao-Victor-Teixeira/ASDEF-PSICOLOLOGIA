@@ -1,0 +1,15 @@
+INSERT INTO tb_paciente (nome, telefone, observacao) VALUES ('Ana Clara Souza', '(11) 98765-1001', 'Ansiedade generalizada e dificuldade para dormir');
+INSERT INTO tb_paciente (nome, telefone, observacao) VALUES ('Bruno Mendes', '(21) 99988-2002', 'Luto recente e sintomas depressivos');
+INSERT INTO tb_paciente (nome, telefone, observacao) VALUES ('Carla Dias', '(31) 98877-3003', 'Conflitos familiares e estresse no trabalho');
+INSERT INTO tb_paciente (nome, telefone, observacao) VALUES ('Daniel Rocha', '(11) 97766-4004', 'Terapia de casal (agendar com esposa)');
+INSERT INTO tb_paciente (nome, telefone, observacao) VALUES ('Eduardo Lima', '(41) 96655-5005', 'Acompanhamento pós-traumático');
+INSERT INTO tb_paciente (nome, telefone, observacao) VALUES ('Fernanda Alves', '(51) 95544-6006', 'Baixa autoestima e insegurança');
+INSERT INTO tb_paciente (nome, telefone, observacao) VALUES ('Gabriel Santos', '(71) 94433-7007', 'Dificuldade de concentração e suspeita de TDAH');
+INSERT INTO tb_paciente (nome, telefone, observacao) VALUES ('Helena Costa', '(81) 93322-8008', 'Crises de pânico em locais fechados');
+INSERT INTO tb_paciente (nome, telefone, observacao) VALUES ('Igor Pereira', '(11) 92211-9009', 'Encaminhamento psiquiátrico para avaliação');
+INSERT INTO tb_paciente (nome, telefone, observacao) VALUES ('Julia Nogueira', '(21) 91100-0110', 'Burnout e esgotamento profissional');
+INSERT INTO tb_paciente (nome, telefone, observacao) VALUES ('Lucas Ferreira', '(31) 99999-1234', 'Questões de relacionamento interpessoal');
+INSERT INTO tb_paciente (nome, telefone, observacao) VALUES ('Mariana Duarte', '(11) 98888-5678', 'Acompanhamento quinzenal de rotina');
+INSERT INTO tb_paciente (nome, telefone, observacao) VALUES ('Nicolas Ramos', '(47) 97777-4321', 'Fobia social');
+INSERT INTO tb_paciente (nome, telefone, observacao) VALUES ('Olívia Carvalho', '(61) 96666-8765', 'Transtorno alimentar (acompanhamento nutricional em paralelo)');
+INSERT INTO tb_paciente (nome, telefone, observacao) VALUES ('Pedro Henrique', '(11) 95555-0987', 'Mudança de cidade e adaptação');
