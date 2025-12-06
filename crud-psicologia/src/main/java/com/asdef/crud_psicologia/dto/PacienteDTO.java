@@ -2,9 +2,13 @@ package com.asdef.crud_psicologia.dto;
 
 import com.asdef.crud_psicologia.paciente.Paciente;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class PacienteDTO {
 
     private Long id;
+    
+    @NotBlank(message = "Campo requerido")
     private String nome;
     private String telefone;
     private String observacao;
