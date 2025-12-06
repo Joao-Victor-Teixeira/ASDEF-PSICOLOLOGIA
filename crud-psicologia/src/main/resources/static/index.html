@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASDEF - Gestão de Psicologia</title>
+    <style>
+        /* Reset e Fontes */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        /* Cabeçalho */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #0056b3; /* Azul Institucional */
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* Menu de Cards */
+        .menu-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            width: 250px;
+            height: 200px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-bottom: 5px solid transparent;
+        }
+
+        /* Efeito ao passar o mouse */
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Estilo específico do cartão de Cadastro */
+        .card.cadastro {
+            border-bottom-color: #28a745;
+        }
+        .card.cadastro .icon { color: #28a745; }
+
+        /* Estilo específico do cartão de Lista */
+        .card.lista {
+            border-bottom-color: #007bff;
+        }
+        .card.lista .icon { color: #007bff; }
+
+        /* Ícones (Emojis grandes) */
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Rodapé */
+        footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ASDEF</h1>
+        <p class="subtitle">Sistema de Gestão de Psicologia</p>
+    </header>
+
+    <div class="menu-container">
+        <a href="cadastro.html" class="card cadastro">
+            <div class="icon">📝</div>
+            <h3>Novo Paciente</h3>
+        </a>
+
+        <a href="lista.html" class="card lista">
+            <div class="icon">📋</div>
+            <h3>Lista de Espera</h3>
+        </a>
+    </div>
+
+    <footer>
+        &copy; 2025 ASDEF ONG - Projeto Educativo
+    </footer>
+
+</body>
+</html>

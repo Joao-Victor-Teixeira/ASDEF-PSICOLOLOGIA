@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Pacientes - ONG</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        
+        h1 { text-align: center; color: #333; }
+        
+        /* Botão Novo */
+        .header-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .btn-novo { background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .btn-novo:hover { background-color: #0056b3; }
+
+        /* Tabela */
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f8f9fa; color: #555; font-weight: 600; }
+        tr:hover { background-color: #f1f1f1; }
+
+        /* Botão Excluir */
+        .btn-delete { background-color: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+        .btn-delete:hover { background-color: #c82333; }
+        
+        .empty-msg { text-align: center; color: #777; margin-top: 20px; display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-actions">
+        <h1>Pacientes Cadastrados</h1>
+        <a href="cadastro.html" class="btn-novo">+ Novo Paciente</a>
+    </div>
+
+    <table id="tabelaPacientes">
+        <thead>
+            <tr>
+                <th style="width: 50px;">ID</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Observação</th>
+                <th style="width: 80px;">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+    
+    <div id="msgVazio" class="empty-msg">Nenhum paciente cadastrado ainda.</div>
+</div>
+
+<script>
+    const API_URL = '/pacientes';
+
+// Função que roda assim que a página abre
+    async function carregarLista() {
+        try {
+            const resposta = await fetch(API_URL);
+            
+            // O Java retorna um objeto "Page", a lista real está dentro de ".content"
+            const pagina = await resposta.json();
+            
+            // AQUI ESTÁ O TRUQUE: Pegamos o .content ou usamos a própria resposta se for lista
+            const pacientes = pagina.content ? pagina.content : pagina;
+            
+            const tbody = document.querySelector('#tabelaPacientes tbody');
+            const msgVazio = document.getElementById('msgVazio');
+            
+            tbody.innerHTML = ''; // Limpa antes de preencher
+
+            if (!pacientes || pacientes.length === 0) {
+                msgVazio.style.display = 'block';
+                return;
+            }
+
+            msgVazio.style.display = 'none';
+
+            // Para cada paciente que veio do Java, cria uma linha na tabela
+            pacientes.forEach(p => {
+                const linha = `
+                    <tr>
+                        <td>${p.id}</td>
+                        <td><strong>${p.nome}</strong></td>
+                        <td>${p.telefone}</td>
+                        <td>${p.observacao}</td>
+                        <td>
+                            <button class="btn-delete" onclick="excluir(${p.id})">Excluir</button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += linha;
+            });
+
+        } catch (erro) {
+            console.error('Erro ao buscar dados:', erro);
+            // alert('Erro ao carregar a lista de pacientes.'); // Comentei para não ficar pipocando na tela
+        }
+    }
+
+    // Função para deletar um paciente
+    async function excluir(id) {
+        if (confirm('Tem certeza que deseja remover este paciente?')) {
+            try {
+                await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+                carregarLista(); // Recarrega a lista para sumir com o item
+            } catch (erro) {
+                alert('Erro ao excluir.');
+            }
+        }
+    }
+
+    // Chama a função principal
+    carregarLista();
+</script>
+
+</body>
+</html>
